@@ -26,7 +26,7 @@ public class MyNotificationService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
         Intent notificationIntent = new Intent(this, SecondActivity.class);
         int requestID = (int) System.currentTimeMillis();
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, notificationIntent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("My notification")
